@@ -16,8 +16,13 @@ mongoose.connect('mongodb://localhost/blogpost_DB', {useNewUrlParser: true});
 app.set('view engine','ejs')
 app.use(express.static('public'))
 
-app.listen(3000,() => {
-    console.log("listening to port 3000")
+let port = process.env.PORT;
+if(port == null && port == ""){
+    port = 4000;
+}
+
+app.listen(port, ()=>{
+    console.log('App listening 4000...')    
 })
 
 app.get('/', async (req,res) => {
@@ -48,9 +53,6 @@ app.get('/contact',(req,res) => {
 app.get('/posts/new',(req,res)=>{
     res.render('create')
 })
-
-
-
 
 
 
