@@ -36,7 +36,10 @@
                 <%= blogposts[i].body %>
             </h3>
           </a>
-<!-- aqui va la fecha de quien lo posteo -->
+          <p class="post-meta">Posted by
+              <a href="#"><%= blogposts[i].username %></a>
+              on <%= blogposts[i].datePosted.toDateString() %></p>
+          </div>
         <hr>
         <% } %>
         <!-- Pager -->
